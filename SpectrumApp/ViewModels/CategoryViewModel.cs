@@ -38,9 +38,15 @@ namespace SpectrumApp.ViewModels
 
         public CategoryViewModel()
         {
-            CategoryCommand = new RelayCommand(DisplayDialog);
+            CategoryCommand = new RelayCommand(async () => await ShowDetailPage());
             VerifyCommand = new RelayCommand(VerifyAgeOfUniverse);
             SortingCommand = new RelayCommand(SortingCategories);
+        }
+
+        private async Task ShowDetailPage()
+        {
+            if (SelectedCategory == null) return;
+            await Shell.Current.GoToAsync($"categoryDetailView?{Constants.CATEGORY_NAME}={SelectedCategory.Name}");
         }
 
         private void SortingCategories()
@@ -71,16 +77,6 @@ namespace SpectrumApp.ViewModels
             var categories = JsonConvert.DeserializeObject<List<CategoryModel>>(jsonData);
             CategoryList.ReplaceRange(categories);
             OnPropertyChanged(nameof(CategoryList));
-        }
-
-        private async void DisplayDialog()
-        {
-            ////await App.Current.MainPage.DisplayAlert("Selected", SelectedCategory.Name, "OK");
-
-            //MessagingCenter.Instance.Send(typeof(CategoryModel), "SelectedCategory", SelectedCategory);
-            //await NavigationPage.PushAsync(new CategoryDetailView());
-
-            //Shell.Current.GoToAsync();
         }
 
         private async void VerifyAgeOfUniverse()

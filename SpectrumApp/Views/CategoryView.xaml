@@ -40,10 +40,11 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <CollectionView
+        <CollectionView x:Name="categoryCollectionView"
             SelectedItem="{Binding SelectedCategory}"
             SelectionMode="Single"
             SelectionChangedCommand="{Binding CategoryCommand}"
+            SelectionChangedCommandParameter="{Binding SelectedCategory}"
             SelectionChanged="CollectionView_SelectionChanged"
             ItemsUpdatingScrollMode="KeepScrollOffset"
             ItemsSource="{Binding CategoryList}"

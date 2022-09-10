@@ -1,37 +1,37 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Input;
-using SpectrumApp.Data;
 using CommunityToolkit.Mvvm.Input;
+using Newtonsoft.Json;
+using SpectrumApp.Data;
+using SpectrumApp.Utils;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Color = Xamarin.Forms.Color;
 
 namespace SpectrumApp.ViewModels
 {
-    public class CategoryDetailViewModel : BaseViewModel
+    public class CategoryDetailViewModel : BaseViewModel, IQueryAttributable
     {
-        public string WebUrl { get; set; }
-        public string Name { get; set; }
+        private CategoryModel currentCategory;
+        public CategoryModel CurrentCategory
+        {
+            get => currentCategory;
+            set => SetProperty(ref currentCategory, value, null);
+        }
 
         public ICommand OpenBrowserCommand { get; set; }
 
         public CategoryDetailViewModel()
         {
-            MessagingCenter.Subscribe<CategoryModel>(this, "SelectedCategory", LoadCategory);
-            OpenBrowserCommand = new RelayCommand<string>(async (url) => await WebBrowser(url));
+            OpenBrowserCommand = new RelayCommand(async () => await WebBrowser());
         }
 
-        private void LoadCategory(CategoryModel model)
+        private async Task WebBrowser()
         {
-            Name = model.Name;
-            WebUrl = model.Url;
-        }
-
-        private async Task WebBrowser(string uri)
-        {
-            await Browser.OpenAsync(uri, new BrowserLaunchOptions
+            await Browser.OpenAsync(CurrentCategory.Url, new BrowserLaunchOptions
             {
                 LaunchMode = BrowserLaunchMode.SystemPreferred,
                 TitleMode = BrowserTitleMode.Show,
@@ -40,6 +40,19 @@ namespace SpectrumApp.ViewModels
             });
         }
 
+        public void ApplyQueryAttributes(IDictionary<string, string> query)
+        {
+            var categoryName = HttpUtility.UrlDecode(query[Constants.CATEGORY_NAME]);
+            Init(categoryName);
+        }
+
+        private void Init(string categoryName)
+        {
+            var jsonData = FileManager.ReadEmbeddedFile(Constants.CATEGORY_EMBEDDED_RESOURCE_ID);
+            var categories = JsonConvert.DeserializeObject<List<CategoryModel>>(jsonData);
+            CurrentCategory = categories.Where(x => x.Name == categoryName).FirstOrDefault();
+            OnPropertyChanged(nameof(CurrentCategory));
+        }
     }
 }
 

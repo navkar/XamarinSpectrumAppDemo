@@ -24,10 +24,14 @@ namespace SpectrumApp.Views
             base.OnAppearing();
             if (ViewModel == null) return;
             ViewModel.Reload();
+            categoryCollectionView.SelectedItem = null;
         }
 
         void CollectionView_SelectionChanged(System.Object sender, Xamarin.Forms.SelectionChangedEventArgs e)
         {
+            var collection = sender as CollectionView;
+            //if (collection != null)
+            //    collection.SelectedItem = null;
         }
     }
 }

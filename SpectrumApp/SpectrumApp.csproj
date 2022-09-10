@@ -22,6 +22,7 @@
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.4" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Xamarin.CommunityToolkit" />
@@ -43,6 +44,7 @@
     <None Remove="Resources\" />
     <None Remove="Resources\svg\" />
     <None Remove="Resources\svg\sort-solid.svg" />
+    <None Remove="Xamarin.FFImageLoading" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />

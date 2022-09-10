@@ -2,18 +2,48 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.NavBarIsVisible="True"
+    Shell.FlyoutBehavior="Disabled"
+    xmlns:custom="clr-namespace:SpectrumApp.Controls"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     x:Class="SpectrumApp.Views.CategoryDetailView">
+    <Shell.TitleView>
+        <Grid Padding="10" Margin="10,10,10,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Grid.ColumnSpan="2"
+                FontSize="35"
+                Text="{Binding CurrentCategory.Name}"
+                HorizontalOptions="Start"
+                CharacterSpacing="2">
+            </Label>
+        </Grid>
+    </Shell.TitleView>
     <ContentPage.Content>
         <Frame HasShadow="False" CornerRadius="15" BorderColor="{StaticResource PrimaryColor}">
             <StackLayout>
-                <Label FontSize="Large" FontAttributes="Bold"
-                    Text="{Binding Name}" />
-                <Button
-                    TextColor="White" CornerRadius="15"
-                    Background="{StaticResource SecondaryColor}"
+                <Label FontSize="Large" HorizontalTextAlignment="Center" FontAttributes="Bold"
+                    Text="{Binding CurrentCategory.Name}" />
+                <ffimageloading:CachedImage
+                    HeightRequest="450"
+                    Aspect="AspectFit"
+                    Source="{Binding CurrentCategory.Image}"  />
+
+                <custom:GradientButton Grid.Column="1"
+                    Text="Open WebURL"
+                    GradientColorOrientation="Horizontal"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    BorderColor="White"
                     Command="{Binding OpenBrowserCommand}"
-                    CommandParameter="{Binding WebUrl}"
-                    Text="{Binding Name}" />
+                    CommandParameter="{Binding CurrentCategory.WebUrl}"                    
+                    BorderWidth="2"                                    
+                    StartColor="#00FFFE"
+                    EndColor="#FF00FE" />
             </StackLayout>
         </Frame>
     </ContentPage.Content>

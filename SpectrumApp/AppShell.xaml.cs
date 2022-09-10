@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SpectrumApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,6 +12,10 @@ namespace SpectrumApp
         public AppShell()
         {
             InitializeComponent();
+
+            Routing.RegisterRoute("categoryDetailView", typeof(CategoryDetailView));
+
+            BindingContext = this;
         }
     }
 }
