@@ -10,6 +10,12 @@ Covers the following features
 | ------------- | ------------- |
 | ![Asc](/screenshots/sort-asc.png)  | ![D](/screenshots/sort-desc.png)  |
 
+## Navigation (Main Page to Detail Page)
+
+| Home Page  | Detail Page |
+| ------------- | ------------- |
+| ![Asc](/screenshots/a.png)  | ![D](/screenshots/b.png)  |
+
 ## Rest of the features
 
 * Filtering and Searching
