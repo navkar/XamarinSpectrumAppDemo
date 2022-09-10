@@ -1,28 +1,28 @@
-## App specifications
+# App specifications
 
 Covers the following features
 
-#### Renderer
+## Renderer
 
 The button has a gradient with start and end color.
 
 *  `GradientButtonRenderer`
 
-[Button](/screenshots/home.png)
+![Button](/screenshots/home.png = 250x250)
 
-#### Converter
+## Converter
 
 The app uses `IntToBoolConverter` to disable the button when there is no data.
 
-[Converter](/screenshots/converter.png)
+![Converter](/screenshots/converter.png)
 
-#### Effect 
+## Effect 
 
 The app uses `LabelShadowEffect` to display a label with a shadow on the footer.
 
-[LabelShadowEffect](/screenshots/footer.png)
+![LabelShadowEffect](/screenshots/footer.png)
 
-#### Behavior
+## Behavior
 
 The app uses the following behavior `NumericValidationBehavior`. When an invalid data is entered onto the Textbox the color changes to Red.
 
@@ -40,7 +40,7 @@ The app uses the following behavior `NumericValidationBehavior`. When an invalid
 ![LabelShadowEffect](/screenshots/behavior.png)
 
 
-#### Collection Sort (Ascending and Descending)
+## Collection Sort (Ascending and Descending)
 
 | Ascending  | Descending |
 | ------------- | ------------- |
