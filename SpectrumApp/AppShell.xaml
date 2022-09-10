@@ -3,62 +3,7 @@
 	   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	   xmlns:views="clr-namespace:SpectrumApp.Views"
 	   x:Class="SpectrumApp.AppShell">
-
 	<ShellContent Title="Category"
 				  Icon="{StaticResource PlayIcon}"
 				  ContentTemplate="{DataTemplate views:CategoryView}" />
-
-	<ShellContent Title="CategoryDetail"
-				  Icon="{StaticResource SortIcon}"
-				  ContentTemplate="{DataTemplate views:CategoryDetailView}" />
-
-	<!--<FlyoutItem Title="Commands"
-				Icon="{StaticResource CalendarIcon}">
-		<ShellContent Title="Introduction"
-					  Icon="{StaticResource BookIcon}"
-					  ContentTemplate="{DataTemplate views:RelayCommandPage}" />
-
-		<ShellContent Title="Async Commands"
-					  Icon="{StaticResource FlagIcon}"
-					  ContentTemplate="{DataTemplate views:AsyncRelayCommandPage}" />
-	</FlyoutItem>
-
-	<FlyoutItem Title="Messenger"
-				Icon="{StaticResource CommentIcon}">
-		<ShellContent Title="Introduction"
-					  Icon="{StaticResource BookIcon}"
-					  ContentTemplate="{DataTemplate views:MessengerPage}" />
-		<ShellContent Title="Sending Messages"
-					  Icon="{StaticResource SendIcon}"
-					  ContentTemplate="{DataTemplate views:MessengerSendPage}" />
-		<ShellContent Title="Request Messages"
-					  Icon="{StaticResource ExchangeIcon}"
-					  ContentTemplate="{DataTemplate views:MessengerRequestPage}" />
-	</FlyoutItem>
-
-	<ShellContent Title="Inversion of Control"
-				  Icon="{StaticResource UndoIcon}"
-				  ContentTemplate="{DataTemplate views:IoCPage}" />
-	
-	<ShellContent Title="ViewModel Setup"
-				  Icon="{StaticResource CubeIcon}"
-				  ContentTemplate="{DataTemplate views:SettingUpTheViewModelsPage}" />
-
-	<FlyoutItem Title="Creating a Service"
-				Icon="{StaticResource ToolsIcon}">
-		<ShellContent Title="Settings Service"
-					  Icon="{StaticResource WrenchIcon}"
-					  ContentTemplate="{DataTemplate views:SettingsServicePage}" />
-		<ShellContent Title="Reddit Service"
-					  Icon="{StaticResource GlobeIcon}"
-					  ContentTemplate="{DataTemplate views:RedditServicePage}" />
-	</FlyoutItem>
-
-	<ShellContent Title="Building the UI"
-				  Icon="{StaticResource RulerIcon}"
-				  ContentTemplate="{DataTemplate views:BuildingTheUIPage}" />
-
-	<ShellContent Title="The Final Result!"
-				  Icon="{StaticResource CheckerIcon}"
-				  ContentTemplate="{DataTemplate views:RedditBrowserPage}" />-->
 </Shell>
