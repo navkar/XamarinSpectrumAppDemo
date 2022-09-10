@@ -22,21 +22,11 @@ Covers the following features
 | Button Gradient | ![Button](/screenshots/home.png)   
 | `IntToBoolConverter` to disable the button when there is no data | ![Converter](/screenshots/converter.png)   
 | `LabelShadowEffect` to display a label with a shadow on the footer | ![Button](/screenshots/footer.png)  
-| `NumericValidationBehavior` - When an invalid data is entered onto the Textbox the color changes to Red. 
-```xml
-    <Entry x:Name="universeEntry"
-            Text="{Binding AgeOfUniverse}"
-            FontSize="Large"
-            Placeholder="numeric!">
-        <Entry.Behaviors>
-            <effect:NumericValidationBehavior />
-        </Entry.Behaviors>
-    </Entry>
-``` | ![Behavior](/screenshots/behavior.png)
+| When an invalid data is entered onto the Textbox the color changes to Red.  | ![Behavior](/screenshots/behavior.png)
 
 ## Code snippets
 
-The app uses the following behavior `NumericValidationBehavior`. When an invalid data is entered onto the Textbox the color changes to Red.
+* The app uses the following behavior `NumericValidationBehavior`. When an invalid data is entered onto the Textbox the color changes to Red.
 
 ```xml
     <Entry x:Name="universeEntry"
