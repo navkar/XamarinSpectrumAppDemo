@@ -8,33 +8,23 @@ Covers the following features
 | ------------- | ------------- |
 | ![Asc](/screenshots/sort-asc.png)  | ![D](/screenshots/sort-desc.png)  |
 
-#### Filtering and Searching
+## Rest of the features
 
-Notice the filtering by Letter 'A'
+* Filtering and Searching
+* Button Gradient - The button has a gradient with start and end color.
+* Converter - The app uses `IntToBoolConverter` to disable the button when there is no data.
+* Effects - Label Shadow
+* Behavior - The app uses the following behavior `NumericValidationBehavior`. When an invalid data is entered onto the Textbox the color changes to Red.
 
-![F](/screenshots/filter.png {width=200px height=250px}) 
+| Description | Screenshot  
+| ------------- | ------------- 
+| Filtering and Searching | ![F](/screenshots/filter.png)  
+| Button Gradient | ![Button](/screenshots/home.png)   
+| `IntToBoolConverter` to disable the button when there is no data | ![Converter](/screenshots/converter.png)   
+| `LabelShadowEffect` to display a label with a shadow on the footer | ![Button](/screenshots/home.png)  
+| `NumericValidationBehavior`  | ![Behavior](/screenshots/behavior.png)
 
-## Renderer
-
-The button has a gradient with start and end color.
-
-*  `GradientButtonRenderer`
-
-![Button](/screenshots/home.png = 250x250)
-
-## Converter
-
-The app uses `IntToBoolConverter` to disable the button when there is no data.
-
-![Converter](/screenshots/converter.png)
-
-## Effect 
-
-The app uses `LabelShadowEffect` to display a label with a shadow on the footer.
-
-![LabelShadowEffect](/screenshots/footer.png)
-
-## Behavior
+## Code snippets
 
 The app uses the following behavior `NumericValidationBehavior`. When an invalid data is entered onto the Textbox the color changes to Red.
 
@@ -49,6 +39,6 @@ The app uses the following behavior `NumericValidationBehavior`. When an invalid
     </Entry>
 ```
 
-![LabelShadowEffect](/screenshots/behavior.png)
+
 
 
