@@ -2,6 +2,18 @@
 
 Covers the following features
 
+## Collection Sort (Ascending and Descending)
+
+| Ascending  | Descending |
+| ------------- | ------------- |
+| ![Asc](/screenshots/sort-asc.png)  | ![D](/screenshots/sort-desc.png)  |
+
+#### Filtering and Searching
+
+Notice the filtering by Letter 'A'
+
+![F](/screenshots/filter.png {width=200px height=250px}) 
+
 ## Renderer
 
 The button has a gradient with start and end color.
@@ -40,14 +52,3 @@ The app uses the following behavior `NumericValidationBehavior`. When an invalid
 ![LabelShadowEffect](/screenshots/behavior.png)
 
 
-## Collection Sort (Ascending and Descending)
-
-| Ascending  | Descending |
-| ------------- | ------------- |
-| ![Asc](/screenshots/sort-asc.png)  | ![D](/screenshots/sort-desc.png)  |
-
-#### Filtering and Searching
-
-Notice the filtering by Letter 'A'
-
-![F](/screenshots/filter.png) 
