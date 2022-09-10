@@ -1,6 +1,6 @@
 # App specifications
 
-**NOTE:** I have tested this App on iOS only, NOT on Android. There is not code for Android as of now!.
+**NOTE:** I have tested this App on iOS only, NOT on Android. No code is available for Android.
 
 Covers the following features
 
