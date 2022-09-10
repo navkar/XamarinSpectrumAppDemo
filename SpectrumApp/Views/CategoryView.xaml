@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    Shell.NavBarIsVisible="True"
+    Shell.FlyoutBehavior="Disabled"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:behaviors="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
+    xmlns:converter="clr-namespace:SpectrumApp.Converters"
+    xmlns:custom="clr-namespace:SpectrumApp.Controls"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:effect="clr-namespace:SpectrumApp.Behaviors"
+    x:Class="SpectrumApp.Views.CategoryView">
+    <Shell.TitleView>
+        <Grid Padding="10" Margin="10,10,10,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0"
+                Text="Home"
+                HorizontalOptions="Start"
+                CharacterSpacing="2">
+            </Label>
+            <ffimageloadingsvg:SvgCachedImage BackgroundColor="Transparent"
+                Grid.Column="1"
+                HorizontalOptions="EndAndExpand"
+                WidthRequest="50" HeightRequest="50"
+                Source="resource://SpectrumApp.Resources.svg.sort-solid.svg">
+                <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SortingCommand}" NumberOfTapsRequired="1" />
+                </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+            </ffimageloadingsvg:SvgCachedImage>
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:IntToBoolConverter x:Key="Int2Bool" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <CollectionView
+            SelectedItem="{Binding SelectedCategory}"
+            SelectionMode="Single"
+            SelectionChangedCommand="{Binding CategoryCommand}"
+            SelectionChanged="CollectionView_SelectionChanged"
+            ItemsUpdatingScrollMode="KeepScrollOffset"
+            ItemsSource="{Binding CategoryList}"
+            BackgroundColor="White">
+
+            <CollectionView.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS" Value="0,0,0,0" />
+                    <On Platform="Android" Value="0,0,0,0" />
+                </OnPlatform>
+            </CollectionView.Margin>
+
+            <CollectionView.Header>
+                <StackLayout>
+                    <SearchBar Text="{Binding FilterQuery}" HeightRequest="50"
+                        PlaceholderColor="Gray"
+                        CancelButtonColor="{StaticResource SecondaryColor}"
+                        TextColor="{StaticResource SecondaryColor}"
+                        Placeholder="Search" Opacity="1"
+                        BackgroundColor="Transparent">
+                        <SearchBar.Behaviors>
+                            <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding FilterCommand}" />
+                        </SearchBar.Behaviors>
+                    </SearchBar>
+                    <Frame
+                        xct:ShadowEffect.Color="Red"
+                        xct:ShadowEffect.OffsetY="5"
+                        xct:ShadowEffect.Radius="10"
+                        Margin="5,5,5,5" BackgroundColor="{StaticResource PrimaryColor}"
+                        HasShadow="False" BorderColor="{StaticResource PrimaryColor}" CornerRadius="25">
+                        <StackLayout>
+                            <Image WidthRequest="300"
+                                   Source="spectrum_logo" />
+
+                            <Label Text="What's the age of the universe? (in billions!)"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="Medium" FontAttributes="Bold" TextColor="White" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="35*" />
+                                    <ColumnDefinition Width="65*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Entry x:Name="universeEntry"
+                                       Text="{Binding AgeOfUniverse}"
+                                       FontSize="Large"
+                                       Placeholder="numeric!">
+                                    <Entry.Behaviors>
+                                        <effect:NumericValidationBehavior />
+                                    </Entry.Behaviors>
+                                </Entry>
+
+                               <custom:GradientButton Grid.Column="1"
+                                    Text="Find out!"
+                                    GradientColorOrientation="Horizontal"
+                                    TextColor="White"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    IsEnabled="{Binding Source={x:Reference universeEntry},
+                                                                    Path=Text.Length,
+                                                                    Converter={StaticResource Int2Bool}}"
+                                    BorderColor="White"
+                                    Command="{Binding VerifyCommand}"
+                                    BorderWidth="2"                                    
+                                    CommandParameter="{Binding AgeOfUniverse}"
+                                    StartColor="#00FFFE"
+                                    EndColor="#FF00FE" />
+                            </Grid>
+
+
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </CollectionView.Header>
+            <CollectionView.Footer>
+                <Frame Margin="0,5,5,0" HasShadow="False" BorderColor="Transparent"
+                       CornerRadius="15">
+                    <StackLayout>
+                        <BoxView HeightRequest="25" BackgroundColor="Transparent"/>
+                        <Label HorizontalTextAlignment="Center"
+                            Text="Developed by Naveen Karamchetti"
+                            FontSize="Micro"
+                            TextColor="{StaticResource PrimaryColor}" >
+                            <Label.Behaviors>
+                                <effect:EffectBehavior Group="Xamarin" Name="LabelShadowEffect" />
+                            </Label.Behaviors>
+                        </Label>
+                        <BoxView HeightRequest="25" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                </Frame>
+            </CollectionView.Footer>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame Margin="5" HasShadow="False" BorderColor="{StaticResource PrimaryColor}" CornerRadius="15">
+                            <StackLayout>
+                                <Label Text="{Binding Name}" FontSize="40" TextColor="{StaticResource PrimaryColor}">
+                                </Label>
+                                <BoxView
+                                    xct:ShadowEffect.Color="{StaticResource PrimaryColor}"
+                                    xct:ShadowEffect.OffsetY="5"
+                                    xct:ShadowEffect.Radius="10"
+                                    HeightRequest="4" BackgroundColor="{StaticResource SecondaryColor}">
+                                </BoxView>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>                
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>
+

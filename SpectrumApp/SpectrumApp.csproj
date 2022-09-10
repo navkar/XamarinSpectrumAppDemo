@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <AssemblyName>SpectrumApp</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Xamarin.Forms.BehaviorsPack" Version="3.0.0" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.4" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Xamarin.CommunityToolkit" />
+    <None Remove="ViewModels\" />
+    <None Remove="Views\" />
+    <None Remove="CommunityToolkit.Mvvm" />
+    <None Remove="Microsoft.Extensions.DependencyInjection" />
+    <None Remove="Data\" />
+    <None Remove="Data\categories.json" />
+    <None Remove="Utils\" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Xamarin.Forms.BehaviorsPack" />
+    <None Remove="Refractored.MvvmHelpers" />
+    <None Remove="Behaviors\" />
+    <None Remove="Converters\" />
+    <None Remove="Controls\" />
+    <None Remove="Xamarin.FFImageLoading.Svg" />
+    <None Remove="Xamarin.FFImageLoading.Svg.Forms" />
+    <None Remove="Resources\" />
+    <None Remove="Resources\svg\" />
+    <None Remove="Resources\svg\sort-solid.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
+    <Folder Include="Data\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="Converters\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\svg\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\categories.json" />
+    <EmbeddedResource Include="Resources\svg\sort-solid.svg" />
+  </ItemGroup>
+</Project>

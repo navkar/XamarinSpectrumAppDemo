@@ -1,0 +1,37 @@
+﻿[
+  {
+    "name": "Internet",
+    "image": "",
+    "url": "https://www.spectrum.net/support/category/internet"
+  },
+  {
+    "name": "TV",
+    "image": "",
+    "url": "https://www.spectrum.net/support/category/tv"
+  },
+  {
+    "name": "Home Phone",
+    "image": "",
+    "url": "https://www.spectrum.net/support/category/voice"
+  },
+  {
+    "name": "Mobile",
+    "image": "",
+    "url": "https://www.spectrum.net/support/category/mobile"
+  },
+  {
+    "name": "Account & Billing",
+    "image": "",
+    "url": "https://www.spectrum.net/support/category/my-account"
+  },
+  {
+    "name": "Support",
+    "image": "",
+    "url": "https://www.spectrum.net/support"
+  },
+  {
+    "name": "My Spectrum App",
+    "image": "",
+    "url": "https://www.spectrum.net/page/my-spectrum-app"
+  }
+]
