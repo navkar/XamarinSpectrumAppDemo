@@ -1,5 +1,7 @@
 # App specifications
 
+**NOTE:** I have tested this App on iOS only, NOT on Android. There is not code for Android as of now!.
+
 Covers the following features
 
 ## Collection Sort (Ascending and Descending)
