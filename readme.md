@@ -1,8 +1,8 @@
 # App specifications
 
-**NOTE:** I have tested this App on iOS only, NOT on Android. No code is available for Android.
+**NOTE:** I have tested this App on iOS only, NOT on Android. No source code is available for Android.
 
-Covers the following features
+# List of Features
 
 ## Collection Sort (Ascending and Descending)
 
